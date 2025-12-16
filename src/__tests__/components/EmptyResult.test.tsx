@@ -3,7 +3,7 @@ import "@testing-library/jest-dom";
 import EmptyResult from "../../components/EmptyResult";
 
 describe("EmptyResult", () => {
-    test("renders heading and description", () => {
+    it("renders heading and description", () => {
         render(<EmptyResult onRetry={() => {}} onBack={() => {}} />);
         expect(screen.getByRole("heading", { name: /no recipe found/i })).toBeInTheDocument();
         expect(
@@ -11,13 +11,13 @@ describe("EmptyResult", () => {
         ).toBeInTheDocument();
     });
 
-    test("renders action buttons", () => {
+    it("renders action buttons", () => {
         render(<EmptyResult onRetry={() => {}} onBack={() => {}} />);
         expect(screen.getByRole("button", { name: /change criteria/i })).toBeInTheDocument();
         expect(screen.getByRole("button", { name: /try again/i })).toBeInTheDocument();
     });
 
-    test("calls callbacks when buttons are clicked", () => {
+    it("calls callbacks when buttons are clicked", () => {
         const onRetry = jest.fn();
         const onBack = jest.fn();
         render(<EmptyResult onRetry={onRetry} onBack={onBack} />);

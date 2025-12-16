@@ -98,3 +98,21 @@ bun lint
 
 ### Jest
 - Integrates well with React testing tools.
+
+## Project structure
+
+This project is organized to keep concerns separated, improve developer experience, and make the codebase easy to navigate and test.
+
+- **`src/components/`**: UI components grouped by feature. Small, focused components.
+- **`src/hooks/`**: Custom hooks encapsulate data fetching and logic (`useRecipes`, `useDebounce`) to keep components declarative and easy to mock in tests.
+- **`src/api/`**: API wrappers so that are not in the UI code.
+- **`src/store/`**: Lightweight global state using Zustand that are centralized and simple, divided by area.
+- **`src/types/`**: Shared TypeScript types and interfaces.
+
+Design goals:
+
+- **Separation of concerns:** Keep UI, state, data fetching, and types separated so changes in one area have minimal impact on others.
+- **Testability:** Small modules and isolated hooks/stores make unit and integration tests easier to write and more reliable.
+- **Folder structure:** Grouping files by purpose (components, hooks, api, store) improves discoverability.
+- **Performance:** Using Vite + SWC, React Query, and lightweight stores keeps startup and iteration times fast.
+
